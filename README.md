@@ -5,16 +5,18 @@ class Notepad(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
+        # Set the title for the notepad
         self.title("Notepad")
 
-        
+        # Create a text widget
         self.text = tk.Text(self, wrap="word")
         self.text.pack(side="top", fill="both", expand=True)
 
-        
+        # Create a menu bar
         self.menu = tk.Menu(self)
         self.config(menu=self.menu)
 
+        # Create a file menu
         file_menu = tk.Menu(self.menu)
         self.menu.add_cascade(label="File", menu=file_menu)
         file_menu.add_command(label="New", command=self.new_file)
@@ -23,6 +25,7 @@ class Notepad(tk.Tk):
         file_menu.add_separator()
         file_menu.add_command(label="Exit", command=self.quit)
 
+        # Create an edit menu
         edit_menu = tk.Menu(self.menu)
         self.menu.add_cascade(label="Edit", menu=edit_menu)
         edit_menu.add_command(label="Cut", command=self.cut)
